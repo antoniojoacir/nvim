@@ -6,7 +6,7 @@ require('lazy').setup({
 
   -- require 'kickstart.plugins'
 
-  {import = 'kickstart.plugins' },
+  {import = 'plugins' },
 
   }, {
   ui = {
