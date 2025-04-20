@@ -17,8 +17,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ import = "custom.plugins" }, {
-	checker = { enabled = false },
-
+	"tpope/vim-sleuth",
 	change_detection = {
 		enabled = false,
 		notify = false, -- get a notification when changes are found

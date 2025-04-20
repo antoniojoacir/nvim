@@ -15,7 +15,7 @@ require("custom.vimkeymaps")
 require("custom.lazy")
 
 -- Theme
-vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("base16-black-metal-bathory")
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
