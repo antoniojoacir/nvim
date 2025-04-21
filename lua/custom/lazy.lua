@@ -16,8 +16,10 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ import = "custom.plugins" }, {
+require("lazy").setup({
 	"tpope/vim-sleuth",
+	{ "Bilal2453/luvit-meta", lazy = true },
+	{ import = "custom.plugins" },
 	change_detection = {
 		enabled = false,
 		notify = false, -- get a notification when changes are found
