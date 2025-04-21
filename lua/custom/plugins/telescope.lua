@@ -1,7 +1,7 @@
 return { -- Fuzzy Finder (files, lsp, etc)
 	"nvim-telescope/telescope.nvim",
 	event = "VimEnter",
-	branch = "*",
+	-- branch = "*",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		{ -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -95,7 +95,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		-- Slightly advanced example of overriding default behavior and theme
 		vim.keymap.set("n", "<leader>w", function()
 			-- You can pass additional configuration to Telescope to change the theme, layout, etc.
-			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_ivy({
 				winblend = 10,
 				previewer = false,
 			}))
