@@ -18,7 +18,7 @@ return { -- Collection of various small independent plugins/modules
 
 		-- require('mini.notify').setup()
 
-		-- Simple and easy statusline.
+		-- Simple and easy stusine.
 		--  You could remove this setup call if you don't like it,
 		--  and try some other statusline plugin
 		-- local statusline = require("mini.statusline")
