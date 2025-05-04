@@ -138,12 +138,6 @@ return {
 
 			local servers = {
 				clangd = {},
-				jdtls = {},
-				bashls = {},
-				html = {},
-				cssls = {},
-				autotools_ls = {},
-				jsonls = {},
 				lua_ls = {
 					settings = {
 						Lua = {
