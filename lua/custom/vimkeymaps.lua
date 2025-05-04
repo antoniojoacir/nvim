@@ -8,11 +8,11 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- Reload file
 vim.keymap.set("n", "<leader>r", "<cmd>source %<CR>")
 
-vim.keymap.set("n", "\\", function()
-	if not require("mini.files").close() then
-		require("mini.files").open()
-	end
-end, { desc = "Toggle mini.files" })
+-- vim.keymap.set("n", "\\", function()
+-- 	if not require("mini.files").close() then
+-- 		require("mini.files").open()
+-- 	end
+-- end, { desc = "Toggle mini.files" })
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
