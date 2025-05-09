@@ -5,6 +5,9 @@ vim.g.maplocalleader = " "
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
+require("custom.config.vimopts")
+require("custom.config.vimkeymaps")
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -39,7 +42,8 @@ require("lazy").setup({
 })
 
 -- Theme
-vim.cmd.colorscheme("base16-black-metal-bathory")
+-- vim.cmd.colorscheme("base16-black-metal-bathory")
+vim.cmd.colorscheme("rose-pine")
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
