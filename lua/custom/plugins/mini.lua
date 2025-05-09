@@ -1,4 +1,4 @@
-	return { -- Collection of various small independent plugins/modules
+return { -- Collection of various small independent plugins/modules
 	"echasnovski/mini.nvim",
 	config = function()
 		-- Better Around/Inside textobjects
@@ -16,13 +16,7 @@
 		-- - sr)'  - [S]urround [R]eplace [)] [']
 		require("mini.surround").setup()
 
-		-- require('mini.notify').setup()
-
-		-- Simple and easy stusine.
-		--  You could remove this setup call if you don't like it,
-		--  and try some other statusline plugin
 		-- local statusline = require("mini.statusline")
-		-- set use_icons to true if you have a Nerd Font
 		-- statusline.setup({ use_icons = vim.g.have_nerd_font })
 		--
 		-- You can configure sections in the statusline by overriding their
@@ -32,27 +26,6 @@
 		-- statusline.section_location = function()
 		-- 	return "%2l:%-2v"
 		-- end
-		require("mini.files").setup({
-			options = {
-				permanent_delete = true,
-				use_as_default_explorer = true,
-			},
-
-			windows = {
-				max_number = math.huge,
-				preview = false,
-				width_focus = 50,
-				width_nofocus = 20,
-				width_preview = 25,
-			},
-			minifiles_toggle = function()
-				if not MiniFiles.close() then
-					MiniFiles.open()
-				end
-			end,
-
-
-		})
-
+		-- woid
 	end,
 }
