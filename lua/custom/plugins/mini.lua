@@ -18,7 +18,6 @@ return {
 			evaluate_single = false,
 			header = table.concat({
 				[[
-
 			 	   ,-.       _,---._ __  / \
 				  /  )    .-'       `./ /   \
 				 (  (   ,'            `/    /|
@@ -30,7 +29,6 @@ return {
 				   |  | (   |            | /
 				   )  |  \  `.___________|/
 				   `--'   `--'
-
 				]],
 			}, "\n"),
 			footer = os.date("%B %d, %I:%M %p"),
