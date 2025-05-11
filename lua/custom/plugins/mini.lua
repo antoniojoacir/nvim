@@ -4,13 +4,20 @@ return {
 		require("mini.ai").setup()
 		require("mini.surround").setup()
 
-		local statusline = require("mini.statusline")
-		statusline.setup({ use_icons = vim.g.have_nerd_font })
+		require("mini.move").setup({
+			mappings = {
+				left = "<S-left>",
+				right = "<S-right>",
+				down = "<S-down>",
+				up = "<S-up>",
 
-		---@diagnostic disable-next-line: duplicate-set-field
-		statusline.section_location = function()
-			return "%2l:%-2v"
-		end
+				-- Move current line in Normal mode
+				line_left = "<S-left>",
+				line_right = "<S-right>",
+				line_down = "<S-down>",
+				line_up = "<S-up>",
+			},
+		})
 
 		local starter = require("mini.starter")
 

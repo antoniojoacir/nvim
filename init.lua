@@ -42,7 +42,6 @@ require("lazy").setup({
 })
 
 -- [[ Theme ]]
-vim.cmd.colorscheme("base16-black-metal")
--- vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("base16-black-metal-gorgoroth")
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

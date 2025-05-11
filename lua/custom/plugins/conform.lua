@@ -1,8 +1,8 @@
 return {
 	{
 		"stevearc/conform.nvim",
-		event = { "BufWritePre" },
-		cmd = { "ConformInfo" },
+		-- event = { "BufWritePre" },
+		-- cmd = { "ConformInfo" },
 		keys = {
 			{
 				"<leader>f",
@@ -33,6 +33,7 @@ return {
 
 			formatters_by_ft = {
 				lua = { "stylua" },
+				json = { "prettier" },
 				javascript = { "prettierd", "prettier", stop_after_first = true },
 			},
 		},
