@@ -44,7 +44,6 @@ return {
 	},
 	{
 		"folke/tokyonight.nvim",
-		name = "tokyonight",
 		config = function()
 			require("tokyonight").setup({
 				style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
@@ -61,7 +60,6 @@ return {
 	},
 	{
 		"rose-pine/neovim",
-		name = "rose-pine",
 		config = function()
 			require("rose-pine").setup({
 				disable_background = true,
@@ -93,7 +91,7 @@ return {
 
 				styles = {
 					bold = true,
-					italic = true,
+					italic = false,
 					transparency = false,
 				},
 			})
