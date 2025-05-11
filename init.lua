@@ -8,7 +8,6 @@ vim.g.have_nerd_font = true
 require("custom.config.vimopts")
 require("custom.config.vimkeymaps")
 
--- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -28,8 +27,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
-		"tpope/vim-sleuth",
-		{ "Bilal2453/luvit-meta", lazy = true },
+		"NMAC427/guess-indent.nvim",
 		{ import = "custom.plugins" },
 	},
 	defaults = {
@@ -37,13 +35,11 @@ require("lazy").setup({
 	},
 	change_detection = {
 		enabled = true,
-		notify = false, -- get a notification when changes are found
+		notify = false,
 	},
 })
 
--- Theme
--- vim.cmd.colorscheme("base16-black-metal-bathory")
-vim.cmd.colorscheme("rose-pine")
-
+-- [[ Theme ]]
+vim.cmd.colorscheme("base16-black-metal")
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

@@ -34,32 +34,33 @@ return {
 			footer = os.date("%B %d, %I:%M %p"),
 			items = {
 				{
-					name = "  Bookmarked Files",
-					action = "lua MiniExtra.pickers.visit_paths { filter = 'todo' }",
+					name = "  Browse files",
+					action = ":lua require('oil').toggle_float()",
 					section = " Actions ",
 				},
 				{
-					name = "  Lazy Update",
-					action = ":Lazy update",
-					section = " Actions ",
-				},
-				{
-					name = "  Open Blank File",
+					name = "  Open Blank File",
 					action = ":enew",
 					section = " Actions ",
 				},
 				{
-					name = "  Find Files",
-					action = "lua MiniPick.builtin.files()",
+					name = " 󰈞 Find file",
+					action = ":Telescope find_files",
 					section = " Actions ",
 				},
 				{
-					name = "  Recent Files",
-					action = "lua MiniExtra.pickers.oldfiles()",
+					name = "  Recent",
+					action = ":Telescope oldfiles",
+					section = " Actions ",
+				},
+
+				{
+					name = " 󰒲 Lazy Update",
+					action = ":Lazy update",
 					section = " Actions ",
 				},
 				{
-					name = "  Quit",
+					name = "  Quit",
 					action = ":q!",
 					section = " Actions ",
 				},

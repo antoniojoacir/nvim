@@ -6,7 +6,7 @@
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Reload file
-vim.keymap.set("n", "<leader>r", "<cmd>source %<CR>")
+vim.keymap.set("n", "<leader>.", "<cmd>source %<CR>")
 
 -- vim.keymap.set("n", "\\", function()
 -- 	if not require("mini.files").close() then
