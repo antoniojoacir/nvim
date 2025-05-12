@@ -38,7 +38,6 @@ return {
 				   `--'   `--'
 				]],
 			}, "\n"),
-			footer = os.date("%B %d, %I:%M %p"),
 			items = {
 				{
 					name = "  Browse files",
@@ -72,6 +71,7 @@ return {
 					section = " Actions ",
 				},
 			},
+			footer = os.date("%B %d, %I:%M %p"),
 			content_hooks = {
 				starter.gen_hook.aligning("center", "center"),
 			},
