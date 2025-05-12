@@ -3,7 +3,6 @@ return {
 	{ "RRethy/base16-nvim" },
 	{
 		"catppuccin/nvim",
-		name = "catppuccin",
 		config = function()
 			require("catppuccin").setup({
 				flavour = "mocha",
@@ -14,7 +13,6 @@ return {
 	},
 	{
 		"ellisonleao/gruvbox.nvim",
-		name = "gruvbox",
 		config = function()
 			require("gruvbox").setup({
 				terminal_colors = true, -- add neovim terminal colors
@@ -64,22 +62,14 @@ return {
 			require("rose-pine").setup({
 				disable_background = true,
 				highlight_groups = {
-					TelescopeMultiSelection = { fg = "text", bg = "highlight_high" },
-
 					TelescopeBorder = { fg = "highlight_high", bg = "none" },
 					TelescopeNormal = { bg = "none" },
 					TelescopePromptNormal = { bg = "base" },
 					TelescopeResultsNormal = { fg = "subtle", bg = "none" },
 					TelescopeSelection = { fg = "text", bg = "base" },
 					TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
-
-					TelescopeTitle = { fg = "base", bg = "love" },
-					TelescopePromptTitle = { fg = "base", bg = "pine" },
-					TelescopePreviewTitle = { fg = "base", bg = "iris" },
-
-					TelescopePromptBorder = { fg = "surface", bg = "surface" },
 				},
-				-- dark_variant = "main", -- main, moon, or dawn
+				dark_variant = "main", -- main, moon, or dawn
 				dim_inactive_windows = false,
 				extend_background_behind_borders = true,
 
