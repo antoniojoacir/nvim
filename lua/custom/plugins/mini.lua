@@ -4,6 +4,12 @@ return {
 		require("mini.ai").setup()
 		require("mini.surround").setup()
 
+		require("mini.snippets").setup({})
+
+		require("mini.tabline").setup({
+			show_icons = true,
+		})
+
 		require("mini.move").setup({
 			mappings = {
 				left = "<S-left>",
