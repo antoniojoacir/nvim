@@ -1,86 +1,54 @@
 return {
-	"echasnovski/mini.nvim",
-	config = function()
-		require("mini.ai").setup()
-		require("mini.surround").setup()
+	{
+		"echasnovski/mini.nvim",
+		version = false,
+	},
+	{
+		"echasnovski/mini.icons",
+		version = false,
+		config = function()
+			require("mini.icons").setup({})
+		end,
+	},
+	{
+		"echasnovski/mini.ai",
+		version = false,
+		config = function()
+			require("mini.ai").setup({})
+		end,
+	},
+	{
+		"echasnovski/mini.surround",
+		version = false,
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			require("mini.surround").setup({})
+		end,
+	},
+	{
+		"echasnovski/mini.tabline",
+		version = false,
+		config = function()
+			require("mini.tabline").setup({})
+		end,
+	},
+	{
+		"echasnovski/mini.move",
+		version = false,
+		config = function()
+			require("mini.move").setup({
+				mappings = {
+					left = "<S-left>",
+					right = "<S-right>",
+					down = "<S-down>",
+					up = "<S-up>",
 
-		require("mini.snippets").setup({})
-
-		require("mini.tabline").setup({
-			show_icons = true,
-		})
-
-		require("mini.move").setup({
-			mappings = {
-				left = "<S-left>",
-				right = "<S-right>",
-				down = "<S-down>",
-				up = "<S-up>",
-
-				-- Move current line in Normal mode
-				line_left = "<S-left>",
-				line_right = "<S-right>",
-				line_down = "<S-down>",
-				line_up = "<S-up>",
-			},
-		})
-
-		local starter = require("mini.starter")
-
-		starter.setup({
-			evaluate_single = false,
-			header = table.concat({
-				[[
-			 	   ,-.       _,---._ __  / \
-				  /  )    .-'       `./ /   \
-				 (  (   ,'            `/    /|
-				  \  `-"             \'\   / |
-				   `.              ,  \ \ /  |
-				    /`.          ,'-`----Y   |
-				   (            ;        |   '
-				   |  ,-.    ,-'         |  /
-				   |  | (   |            | /
-				   )  |  \  `.___________|/
-				   `--'   `--'
-				]],
-			}, "\n"),
-			items = {
-				{
-					name = "  Browse files",
-					action = ":lua require('oil').toggle_float()",
-					section = " Actions ",
+					line_left = "<S-left>",
+					line_right = "<S-right>",
+					line_down = "<S-down>",
+					line_up = "<S-up>",
 				},
-				{
-					name = "  Open Blank File",
-					action = ":enew",
-					section = " Actions ",
-				},
-				{
-					name = " 󰈞 Find file",
-					action = ":Telescope find_files",
-					section = " Actions ",
-				},
-				{
-					name = "  Recent",
-					action = ":Telescope oldfiles",
-					section = " Actions ",
-				},
-
-				{
-					name = " 󰒲 Lazy Update",
-					action = ":Lazy update",
-					section = " Actions ",
-				},
-				{
-					name = "  Quit",
-					action = ":q!",
-					section = " Actions ",
-				},
-			},
-			footer = os.date("%B %d, %I:%M %p"),
-			content_hooks = {
-				starter.gen_hook.aligning("center", "center"),
-			},
-		})
-	end,
+			})
+		end,
+	},
 }
