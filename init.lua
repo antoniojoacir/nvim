@@ -27,8 +27,12 @@ rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
-		"NMAC427/guess-indent.nvim",
-		{ import = "custom.plugins" },
+		{
+			import = "custom.plugins",
+			opts = {
+				colorscheme = "rose-pine",
+			},
+		},
 	},
 	defaults = {
 		version = false,
@@ -41,6 +45,6 @@ require("lazy").setup({
 
 -- [[ Theme ]]
 -- vim.cmd.colorscheme("base16-black-metal-bathory")
-vim.cmd.colorscheme("rose-pine")
+-- vim.cmd.colorscheme("rose-pine")
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
