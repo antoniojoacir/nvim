@@ -27,12 +27,15 @@ return {
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = {
-					{ "branch", icon = "" },
-					{ "diff", symbols = { added = " ", modified = "󰝤 ", removed = " " } },
+					{ "branch" },
+					{
+						"diff",
+						-- symbols = { added = " ", modified = "󰝤 ", removed = " " },
+					},
 					{
 						"diagnostics",
 						sources = { "nvim_diagnostic" },
-						symbols = { error = "󰅚 ", warn = "󰀪 ", info = "󰋽 " },
+						-- symbols = { error = "󰅚 ", warn = "󰀪 ", info = "󰋽 " },
 					},
 				},
 				lualine_c = { "filename" },
@@ -41,9 +44,9 @@ return {
 						local encoding = vim.o.fileencoding
 						local lsp = lsp_name()
 						if encoding == "" then
-							return vim.bo.fileformat .. " :: " .. vim.bo.filetype
+							return vim.bo.filetype
 						else
-							return lsp .. " :: " .. vim.bo.filetype .. " :: " .. vim.bo.fileformat .. " :: " .. encoding
+							return lsp .. " :: " .. vim.bo.filetype .. " :: " .. encoding
 						end
 					end,
 				},
