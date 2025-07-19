@@ -1,4 +1,4 @@
-return { -- Fuzzy Finder (files, lsp, etc)
+return {
 	"nvim-telescope/telescope.nvim",
 	event = "VimEnter",
 	dependencies = {
@@ -14,7 +14,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		},
 		{ "nvim-telescope/telescope-ui-select.nvim" },
 
-		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+		{
+			"nvim-tree/nvim-web-devicons",
+			enabled = vim.g.have_nerd_font,
+		},
 	},
 	config = function()
 		require("telescope").setup({
@@ -23,7 +26,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 					enable_preview = true,
 				},
 				find_files = {
-					hidden = true,
+					hidden = false,
 				},
 			},
 			extensions = {
