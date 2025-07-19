@@ -27,8 +27,6 @@ rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = {
 		{ import = "custom.plugins" },
-		{ import = "custom.plugins.ui" },
-		{ import = "custom.plugins.ui.colorschemes" },
 	},
 	defaults = {
 		version = false,
@@ -40,6 +38,8 @@ require("lazy").setup({
 })
 
 -- [[ Theme ]]
+
+vim.cmd.colorscheme("base16-black-metal-bathory")
 -- vim.cmd.colorscheme("rose-pine")
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

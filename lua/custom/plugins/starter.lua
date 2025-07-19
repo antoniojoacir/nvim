@@ -25,30 +25,33 @@ return {
 					{
 						name = "  Browse files",
 						action = ":lua require('oil').toggle_float()",
-						section = " Actions ",
+						section = "",
 					},
 					{
 						name = "  Open Blank File",
 						action = ":enew",
-						section = " Actions ",
+						section = "",
 					},
 					{
 						name = " 󰈞 Find file",
 						action = ":Telescope find_files",
-						section = " Actions ",
+						section = "",
 					},
 
-					starter.sections.recent_files(5, true),
-
+					{
+						name = "  Recent",
+						action = ":Telescope oldfiles",
+						section = "",
+					},
 					{
 						name = " 󰒲 Lazy Update",
 						action = ":Lazy update",
-						section = " Actions ",
+						section = "",
 					},
 					{
 						name = "  Quit",
 						action = ":q!",
-						section = " Actions ",
+						section = "",
 					},
 				},
 
