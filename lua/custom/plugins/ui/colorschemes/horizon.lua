@@ -1,1 +1,1 @@
-return { { "akinsho/horizon.nvim", version = "*" } }
+return { "akinsho/horizon.nvim", version = "*" }

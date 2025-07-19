@@ -1,10 +1,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.g.have_nerd_font = true
+vim.opt.termguicolors = true
 
-require("custom.config.vimopts")
-require("custom.config.vimkeymaps")
+vim.g.have_nerd_font = true
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -27,12 +26,9 @@ rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
-		{
-			import = "custom.plugins",
-			opts = {
-				colorscheme = "rose-pine",
-			},
-		},
+		{ import = "custom.plugins" },
+		{ import = "custom.plugins.ui" },
+		{ import = "custom.plugins.ui.colorschemes" },
 	},
 	defaults = {
 		version = false,
@@ -44,7 +40,6 @@ require("lazy").setup({
 })
 
 -- [[ Theme ]]
--- vim.cmd.colorscheme("base16-black-metal-bathory")
 -- vim.cmd.colorscheme("rose-pine")
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
