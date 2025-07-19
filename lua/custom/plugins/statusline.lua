@@ -2,20 +2,6 @@ return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "echasnovski/mini.icons" },
 	config = function()
-		local function lsp_name()
-			local msg = "No Active Lsp"
-			local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
-			local clients = vim.lsp.get_clients({ bufnr = 0 })
-			if #clients == 0 then
-				return msg
-			end
-			for _, client in ipairs(clients) do
-				if not client.config.filetypes or vim.tbl_contains(client.config.filetypes, buf_ft) then
-					return client.name
-				end
-			end
-			return msg
-		end
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
@@ -27,7 +13,10 @@ return {
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = {
-					{ "branch" },
+					{
+						"branch",
+						icon = "",
+					},
 					{
 						"diff",
 						-- symbols = { added = " ", modified = "󰝤 ", removed = " " },
@@ -42,11 +31,19 @@ return {
 				lualine_x = {
 					function()
 						local encoding = vim.o.fileencoding
-						local lsp = lsp_name()
 						if encoding == "" then
 							return vim.bo.filetype
 						else
-							return lsp .. " :: " .. vim.bo.filetype .. " :: " .. encoding
+							local clients = vim.lsp.get_clients({ bufnr = 0 })
+							if #clients == 0 then
+								return "No LSP"
+							end
+
+							local name = {}
+							for _, client in ipairs(clients) do
+								table.insert(name, client.name)
+							end
+							return table.concat(name, ",") .. " :: " .. vim.bo.filetype .. " :: " .. encoding
 						end
 					end,
 				},
