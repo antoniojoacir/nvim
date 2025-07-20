@@ -3,13 +3,13 @@ return {
 		"echasnovski/mini.nvim",
 		version = false,
 	},
-	{
-		"echasnovski/mini.icons",
-		version = false,
-		config = function()
-			require("mini.icons").setup({})
-		end,
-	},
+	-- {
+	-- 	"echasnovski/mini.icons",
+	-- 	version = false,
+	-- 	config = function()
+	-- 		require("mini.icons").setup({})
+	-- 	end,
+	-- },
 	{
 		"echasnovski/mini.ai",
 		version = false,
