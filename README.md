@@ -1,4 +1,4 @@
-# My [neovim](https://github.com/neovim/neovim) configurations
+# My neovim configurations
 For everything to work properly, you need to install the following packages.
 
 > [!NOTE]
@@ -45,3 +45,23 @@ To install new themes, you'll need to export them in the `colorschemes.lua` file
 I'm currently using a module of the [mini.nvim](https://github.com/echasnovski/mini.nvim) plugin called [mini.files](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md), the key to open it is `\` the rest is defaults.
 
 ![mini.files](https://github.com/user-attachments/assets/e8b61c0c-3ad9-480d-a79d-d87b0c1dd7b5)
+
+But there is another possibility which is [oil.nvim](https://github.com/stevearc/oil.nvim), it uses the standard nvim motions, to enable it you will need to comment out all the mini.files in the `mini.lua` file or just the keymap so as not to conflict with oil.
+
+```lua mini.lua
+--  vim.keymap.set("n", "\\", function()
+--      local success = pcall(function()
+--          local file_path = vim.api.nvim_buf_get_name(0)
+--              if file_path == "" then
+--                  error("No buffer")
+--              end
+--          MiniFiles.open(file_path, false)
+-- 		    MiniFiles.reveal_cwd()
+--      end)
+--      if not success then
+-- 	        MiniFiles.open()
+-- 	    end
+--  end, { desc = "Toggle into currently opened file" })
+```
+
+
