@@ -1,4 +1,4 @@
-# MY [NEOVIM](https://github.com/neovim/neovim) CONFIGURATIONS
+# My [NEOVIM](https://github.com/neovim/neovim) configurations
 For everything to work properly, you need to install the following packages.
 
 > [!NOTE]
