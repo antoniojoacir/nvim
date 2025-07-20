@@ -48,7 +48,8 @@ I'm currently using a module of the [mini.nvim](https://github.com/echasnovski/m
 
 But there is another possibility which is [oil.nvim](https://github.com/stevearc/oil.nvim), it uses the standard nvim motions, to enable it you will need to comment out all the mini.files in the `mini.lua` file or just the keymap so as not to conflict with oil.
 
-```lua:mini.lua
+`mini.lua`
+```lua
 --  vim.keymap.set("n", "\\", function()
 --      local success = pcall(function()
 --          local file_path = vim.api.nvim_buf_get_name(0)
@@ -62,6 +63,15 @@ But there is another possibility which is [oil.nvim](https://github.com/stevearc
 -- 	        MiniFiles.open()
 -- 	    end
 --  end, { desc = "Toggle into currently opened file" })
+```
+
+Then comment out these lines from `oil.lua`.
+
+`oil.lua`
+```lua
+-- if true then
+   -- return {}
+-- end
 ```
 
 
