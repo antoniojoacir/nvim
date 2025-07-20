@@ -42,6 +42,6 @@ To install new themes, you'll need to export them in the `colorschemes.lua` file
 ```
 
 ### File handling
-I'm currently using a module of the [mini.nvim](https://github.com/echasnovski/mini.nvim) plugin called [mini.files](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md), the key to open it is `\` the rest is defaults
+I'm currently using a module of the [mini.nvim](https://github.com/echasnovski/mini.nvim) plugin called [mini.files](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md), the key to open it is `\` the rest is defaults.
 
-
+![mini.files](https://github.com/user-attachments/assets/e8b61c0c-3ad9-480d-a79d-d87b0c1dd7b5)
