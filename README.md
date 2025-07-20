@@ -73,5 +73,6 @@ Then comment out these lines from `oil.lua`.
    -- return {}
 -- end
 ```
+it will look like this
 
-
+![img](https://github.com/user-attachments/assets/4f44cb33-2c7c-40d8-8a45-5d692b335dac)
