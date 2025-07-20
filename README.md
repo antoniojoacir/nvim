@@ -1,4 +1,4 @@
-# My [NEOVIM](https://github.com/neovim/neovim) configurations
+# My [neovim](https://github.com/neovim/neovim) configurations
 For everything to work properly, you need to install the following packages.
 
 > [!NOTE]
@@ -13,6 +13,6 @@ sudo pacman -Syu --noconfirm --needed fg bd ripgrep unzip nodejs
 ## PLUGINS
 The plugins on my neovim are managed by LazyThe plugins on my neovim are managed by [Lazy](https://github.com/folke/lazy.nvim)
 
-![lazy-exemple](https://github.com/user-attachments/assets/556cfe9a-7a2b-480d-a9f8-e27c5bd9faf3")
+![lazy-exemple](https://github.com/user-attachments/assets/556cfe9a-7a2b-480d-a9f8-e27c5bd9faf3)
 
  ### 
