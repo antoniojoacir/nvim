@@ -48,6 +48,22 @@ I'm currently using a module of the [mini.nvim](https://github.com/echasnovski/m
 
 But there is another possibility which is [oil.nvim](https://github.com/stevearc/oil.nvim), it uses the standard nvim motions, to enable it you will need to comment out all the mini.files in the `mini.lua` file or just the keymap so as not to conflict with oil.
 
+```
+~/.config/nvim/
+├── lua
+│   └── custom
+│       └── plugins
+│           ├── ...
+│           ├── mini.lua <-- HERE
+│           ├── ...
+│           ├── oil.lua <-- AND HERE
+│           └── ...
+├── plugin
+│   └── ...
+├── README.md
+└── init.lua
+```
+
 `mini.lua`
 ```lua
 --  vim.keymap.set("n", "\\", function()
