@@ -38,7 +38,6 @@ require("lazy").setup({
 })
 
 -- [[ Theme ]]
-
 -- vim.cmd.colorscheme("base16-black-metal-bathory")
 vim.cmd.colorscheme("rose-pine")
 -- The line beneath this is called `modeline`. See `:help modeline`

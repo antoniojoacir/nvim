@@ -43,7 +43,7 @@ return {
 							for _, client in ipairs(clients) do
 								table.insert(name, client.name)
 							end
-							return table.concat(name, ",") .. " :: " .. vim.bo.filetype .. " :: " .. encoding
+							return table.concat(name, ", ") .. " :: " .. vim.bo.filetype .. " :: " .. encoding
 						end
 					end,
 				},

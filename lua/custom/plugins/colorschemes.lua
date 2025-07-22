@@ -1,6 +1,6 @@
 return {
 	{
-		"RRethy/base16-nvim",
+		"metalelf0/base16-black-metal-scheme",
 	},
 	{
 		"akinsho/horizon.nvim",
@@ -10,7 +10,7 @@ return {
 		"rose-pine/neovim",
 		config = function()
 			require("rose-pine").setup({
-				disable_background = true,
+				-- disable_background = false,
 				highlight_groups = {
 					TelescopeBorder = { fg = "highlight_high", bg = "none" },
 					TelescopeNormal = { bg = "none" },
@@ -22,13 +22,11 @@ return {
 				dark_variant = "main", -- main, moon, or dawn
 				dim_inactive_windows = false,
 				extend_background_behind_borders = true,
-
 				enable = {
 					terminal = true,
 					legacy_highlights = true,
 					migrations = true,
 				},
-
 				styles = {
 					bold = true,
 					italic = false,
