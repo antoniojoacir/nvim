@@ -1,6 +1,6 @@
 return {
 	{
-		"metalelf0/base16-black-metal-scheme",
+		"RRethy/base16-nvim",
 	},
 	{
 		"akinsho/horizon.nvim",

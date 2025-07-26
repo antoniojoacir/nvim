@@ -24,7 +24,7 @@ return {
 				items = {
 					{
 						name = "  Browse files",
-						action = ":lua require('oil').toggle_float()",
+						action = ":lua require('mini.files').open()",
 						section = "",
 					},
 					{

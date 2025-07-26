@@ -4,12 +4,10 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-				icons_enabled = true,
 				theme = "auto",
 				component_separators = "",
 				section_separators = "",
 			},
-
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = {
@@ -19,19 +17,19 @@ return {
 					},
 					{
 						"diff",
-						-- symbols = { added = " ", modified = "󰝤 ", removed = " " },
+						symbols = { added = " ", modified = "  ", removed = "  " },
 					},
 					{
 						"diagnostics",
 						sources = { "nvim_diagnostic" },
-						-- symbols = { error = "󰅚 ", warn = "󰀪 ", info = "󰋽 " },
 					},
 				},
 				lualine_c = { "filename" },
 				lualine_x = {
 					function()
-						local encoding = vim.o.fileencoding
-						if encoding == "" then
+						local filetype = vim.bo.filetype
+						local icon = require("nvim-web-devicons").get_icon_by_filetype(filetype)
+						if vim.o.fileencoding == "" then
 							return vim.bo.filetype
 						else
 							local clients = vim.lsp.get_clients({ bufnr = 0 })
@@ -43,7 +41,13 @@ return {
 							for _, client in ipairs(clients) do
 								table.insert(name, client.name)
 							end
-							return table.concat(name, ", ") .. " :: " .. vim.bo.filetype .. " :: " .. encoding
+							return table.concat(name, ", ")
+								.. " :: "
+								.. icon
+								.. " "
+								.. filetype
+								.. " :: "
+								.. vim.o.fileencoding
 						end
 					end,
 				},
