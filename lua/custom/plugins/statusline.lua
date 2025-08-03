@@ -6,10 +6,16 @@ return {
 			options = {
 				theme = "auto",
 				component_separators = "",
-				section_separators = "",
+				section_separators = { left = "", right = "" },
 			},
 			sections = {
-				lualine_a = { "mode" },
+				lualine_a = {
+					{
+						"mode",
+						separator = { left = "", right = "" },
+						right_padding = 2,
+					},
+				},
 				lualine_b = {
 					{
 						"branch",
@@ -24,7 +30,9 @@ return {
 						sources = { "nvim_diagnostic" },
 					},
 				},
-				lualine_c = { "filename" },
+				lualine_c = {
+					{ "filename" },
+				},
 				lualine_x = {
 					function()
 						local filetype = vim.bo.filetype
@@ -51,8 +59,14 @@ return {
 						end
 					end,
 				},
-				lualine_y = { "progress" },
-				lualine_z = { "location" },
+				lualine_y = {},
+				lualine_z = {
+					{
+						"location",
+						separator = { left = "", right = "" },
+						left_padding = 2,
+					},
+				},
 			},
 		})
 	end,

@@ -29,7 +29,7 @@ return {
 			menu = {
 				border = "rounded",
 				draw = {
-					columns = { { "kind_icon" }, { "label", "label_description" }, { "kind" } },
+					columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
 					components = {
 						kind_icon = {
 							text = function(ctx)
@@ -69,10 +69,10 @@ return {
 		},
 		snippets = { preset = "luasnip" },
 		sources = {
-			default = { "lsp", "path", "snippets", "lazydev" },
-			providers = {
-				lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
-			},
+			default = { "lsp", "path", "snippets", "buffer" },
+			-- providers = {
+			-- 	lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
+			-- },
 		},
 		fuzzy = { implementation = "lua" },
 	},

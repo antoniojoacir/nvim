@@ -155,6 +155,9 @@ return {
 			local capabilities = require("blink-cmp").get_lsp_capabilities()
 
 			local servers = {
+				biome = {
+					filetypes = { "javascript" },
+				},
 				clangd = {},
 				emmet_ls = {},
 				lua_ls = {
