@@ -1,5 +1,4 @@
 return {
-
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		{ "mason-org/mason.nvim", opts = {} },
@@ -166,7 +165,7 @@ return {
 						completion = {
 							callSnippet = "Replace",
 						},
-						diagnostics = { disable = { "missing-fields" } },
+						-- diagnostics = { disable = { "missing-fields" } },
 					},
 				},
 			},
