@@ -14,30 +14,24 @@ return {
 		},
 		{ "nvim-telescope/telescope-ui-select.nvim" },
 
-		{
-			"nvim-tree/nvim-web-devicons",
-			enabled = vim.g.have_nerd_font,
-		},
+		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 	},
 	config = function()
 		require("telescope").setup({
-			pickers = {
-				colorscheme = {
-					enable_preview = true,
-				},
-				find_files = {
-					hidden = false,
-				},
-			},
+			-- pickers = {
+			-- 	find_files = {
+			-- 		hidden = false,
+			-- 	},
+			-- },
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),
 				},
 
 				fzf = {
-					fuzzy = true, -- false will only do exact matching
-					override_generic_sorter = true, -- override the generic sorter
-					override_file_sorter = true, -- override the file sorter
+					fuzzy = true,
+					override_generic_sorter = true,
+					override_file_sorter = true,
 					case_mode = "smart_case",
 				},
 			},

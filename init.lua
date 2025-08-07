@@ -1,8 +1,4 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 vim.opt.termguicolors = true
-
 vim.g.have_nerd_font = true
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -19,20 +15,13 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 		os.exit(1)
 	end
 end
+vim.opt.rtp:prepend(lazypath)
 
----@type vim.Option
-local rtp = vim.opt.rtp
-rtp:prepend(lazypath)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-require("lazy").setup({
-	spec = {
-		{ import = "custom.plugins" },
-	},
-	defaults = {
-		version = false,
-	},
+require("lazy").setup({ import = "custom.plugins" }, {
 	change_detection = {
-		enabled = true,
 		notify = false,
 	},
 })

@@ -1,17 +1,31 @@
 return {
 	"saghen/blink.cmp",
+	event = "VimEnter",
+	version = "1.*",
 	dependencies = {
 		{
 			"L3MON4D3/LuaSnip",
 			version = "v2.*",
 			dependencies = {
-				"folke/lazydev.nvim",
+				{
+					"rafamadriz/friendly-snippets",
+					config = function()
+						require("luasnip.loaders.from_vscode").lazy_load()
+					end,
+				},
 			},
 		},
-		{ "onsails/lspkind.nvim" },
+		"onsails/lspkind.nvim",
+		{
+			"folke/lazydev.nvim",
+			ft = "lua",
+			opts = {
+				library = {
+					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+				},
+			},
+		},
 	},
-
-	version = "1.*",
 
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
@@ -63,18 +77,18 @@ return {
 		},
 		signature = {
 			enabled = true,
-			window = {
-				show_documentation = false,
-			},
+			-- window = {
+			-- 	show_documentation = false,
+			-- },
 		},
 		snippets = { preset = "luasnip" },
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
-			-- providers = {
-			-- 	lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
-			-- },
+			default = { "lsp", "path", "snippets", "lazydev" },
+			providers = {
+				lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
+			},
 		},
 		fuzzy = { implementation = "lua" },
 	},
-	opts_extend = { "sources.default" },
+	-- opts_extend = { "sources.default" },
 }

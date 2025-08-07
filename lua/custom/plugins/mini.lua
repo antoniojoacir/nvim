@@ -1,69 +1,45 @@
 return {
-	{
-		"echasnovski/mini.nvim",
-		version = false,
-	},
-	-- {
-	-- 	"echasnovski/mini.icons",
-	-- 	version = false,
-	-- 	config = function()
-	-- 		require("mini.icons").setup({})
-	-- 	end,
-	-- },
-	{
-		"echasnovski/mini.ai",
-		version = false,
-		config = function()
-			require("mini.ai").setup({})
-		end,
-	},
-	{
-		"echasnovski/mini.surround",
-		version = false,
-		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			require("mini.surround").setup({})
-		end,
-	},
-	{
-		"echasnovski/mini.tabline",
-		version = false,
-		config = function()
-			require("mini.tabline").setup({})
-		end,
-	},
-	{
-		"echasnovski/mini.move",
-		version = false,
-		config = function()
-			require("mini.move").setup({
-				mappings = {
-					left = "<S-left>",
-					right = "<S-right>",
-					down = "<S-down>",
-					up = "<S-up>",
+	"echasnovski/mini.nvim",
+	config = function()
+		-- Better Around/Inside textobjects
+		--
+		-- Examples:
+		--  - va)  - [V]isually select [A]round [)]paren
+		--  - yinq - [Y]ank [I]nside [N]ext [Q]uote
+		--  - ci'  - [C]hange [I]nside [']quote
+		require("mini.ai").setup({ n_lines = 500 })
 
-					line_left = "<S-left>",
-					line_right = "<S-right>",
-					line_down = "<S-down>",
-					line_up = "<S-up>",
-				},
-			})
-		end,
-	},
-	{
-		"echasnovski/mini.files",
-		config = function()
-			local MiniFiles = require("mini.files")
-			MiniFiles.setup({
-				mappings = {
-					close = "\\",
-					go_in = "<CR>",
-					go_in_plus = "L",
-					go_out = "-",
-					go_out_plus = "H",
-				},
-			})
+		-- Add/delete/replace surroundings (brackets, quotes, etc.)
+		--
+		-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
+		-- - sd'   - [S]urround [D]elete [']quotes
+		-- - sr)'  - [S]urround [R]eplace [)] [']
+		require("mini.surround").setup({})
+
+		require("mini.tabline").setup({})
+
+		require("mini.move").setup({
+			mappings = {
+				left = "<S-left>",
+				right = "<S-right>",
+				down = "<S-down>",
+				up = "<S-up>",
+
+				line_left = "<S-left>",
+				line_right = "<S-right>",
+				line_down = "<S-down>",
+				line_up = "<S-up>",
+			},
+		})
+
+		require("mini.files").setup({
+			mappings = {
+				close = "\\",
+				go_in = "<CR>",
+				go_in_plus = "L",
+				go_out = "-",
+				go_out_plus = "H",
+			},
 
 			vim.keymap.set("n", "\\", function()
 				local success = pcall(function()
@@ -71,25 +47,19 @@ return {
 					if file_path == "" then
 						error("No buffer")
 					end
-					MiniFiles.open(file_path, false)
-					MiniFiles.reveal_cwd()
+					require("mini.files").open(file_path, false)
+					require("mini.files").reveal_cwd()
 				end)
 				if not success then
-					MiniFiles.open()
+					require("mini.files").open()
 				end
-			end, { desc = "Toggle into currently opened file" })
-		end,
-	},
-	{
-		"echasnovski/mini.hipatterns",
-		version = false,
-		config = function()
-			local hipatterns = require("mini.hipatterns")
-			hipatterns.setup({
-				highlighters = {
-					hex_color = hipatterns.gen_highlighter.hex_color(),
-				},
-			})
-		end,
-	},
+			end, { desc = "Toggle file manager" }),
+		})
+
+		require("mini.hipatterns").setup({
+			highlighters = {
+				hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
+			},
+		})
+	end,
 }
