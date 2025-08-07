@@ -1,6 +1,3 @@
-vim.opt.termguicolors = true
-vim.g.have_nerd_font = true
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -19,8 +16,11 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.g.have_nerd_font = true
+vim.opt.termguicolors = true
 
 require("lazy").setup({ import = "custom.plugins" }, {
+	"NMAC427/guess-indent.nvim",
 	change_detection = {
 		notify = false,
 	},
