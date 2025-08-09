@@ -10,7 +10,6 @@ return {
 		"rose-pine/neovim",
 		config = function()
 			require("rose-pine").setup({
-				-- disable_background = false,
 				highlight_groups = {
 					TelescopeBorder = { fg = "highlight_high", bg = "none" },
 					TelescopeNormal = { bg = "none" },
