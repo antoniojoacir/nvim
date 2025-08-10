@@ -4,69 +4,47 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-				theme = "auto",
 				component_separators = "",
-				section_separators = { left = "", right = "" },
+				section_separators = "",
+				theme = "auto",
 			},
 			sections = {
-				lualine_a = {
-					{
-						"mode",
-						separator = { left = "", right = "" },
-						right_padding = 2,
-					},
-				},
+				lualine_a = { "mode" },
 				lualine_b = {
-					{
-						"branch",
-						icon = "",
-					},
-					{
-						"diff",
-						symbols = { added = " ", modified = "  ", removed = "  " },
-					},
-					{
-						"diagnostics",
-						sources = { "nvim_diagnostic" },
-					},
+					{ "branch", icon = "" },
+					{ "diff", symbols = { added = " ", modified = " ", removed = " " } },
 				},
 				lualine_c = {
 					{ "filename" },
 				},
 				lualine_x = {
-					function()
-						local filetype = vim.bo.filetype
-						local icon = require("nvim-web-devicons").get_icon_by_filetype(filetype)
-						if vim.o.fileencoding == "" then
-							return vim.bo.filetype
-						else
+					{ "diagnostics", sources = { "nvim_diagnostic" }, update_in_insert = true },
+					{
+						function()
 							local clients = vim.lsp.get_clients({ bufnr = 0 })
 							if #clients == 0 then
-								return "No LSP"
+								return ""
 							end
 
 							local name = {}
 							for _, client in ipairs(clients) do
 								table.insert(name, client.name)
 							end
-							return table.concat(name, ", ")
-								.. " :: "
-								.. icon
-								.. " "
-								.. filetype
-								.. " :: "
-								.. vim.o.fileencoding
-						end
-					end,
-				},
-				lualine_y = {},
-				lualine_z = {
+							return " " .. table.concat(name, " ") .. " ::"
+						end,
+					},
+					{ "filetype" },
 					{
-						"location",
-						separator = { left = "", right = "" },
-						left_padding = 2,
+						function()
+							if vim.o.fileencoding == "" then
+								return ""
+							end
+							return ":: " .. vim.o.fileencoding
+						end,
 					},
 				},
+				lualine_y = { "progress" },
+				lualine_z = { "location" },
 			},
 		})
 	end,

@@ -1,6 +1,17 @@
 return {
 	{
 		"RRethy/base16-nvim",
+		config = function()
+			require("base16-colorscheme").with_config({
+				telescope = true,
+				indentblankline = true,
+				notify = true,
+				ts_rainbow = true,
+				cmp = true,
+				illuminate = true,
+				dapui = true,
+			})
+		end,
 	},
 	{
 		"akinsho/horizon.nvim",
@@ -43,7 +54,7 @@ return {
 				terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
 				styles = {
 					comments = { italic = false },
-					keywords = { italic = false },
+					keywords = { italic = true },
 					sidebars = "transparent", -- style for sidebars, see below
 					floats = "transparent", -- style for floating windows
 				},
@@ -105,7 +116,7 @@ return {
 				invert_tabline = false,
 				invert_intend_guides = false,
 				inverse = true,
-				contrast = "hard", -- can be "hard", "soft"
+				contrast = "hard",
 				dim_inactive = false,
 				transparent_mode = true,
 			})
