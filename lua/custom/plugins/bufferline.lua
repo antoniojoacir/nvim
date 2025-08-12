@@ -10,7 +10,10 @@ return {
 				indicator = {
 					style = "underline",
 				},
-				diagnostics = "nvim_lsp" or "coc",
+				diagnostics = "nvim_lsp",
+				--"slant" | "slope" | "thick" | "thin" | { "any", "any" },
+				separator_style = { "", "" },
+				style_preset = require("bufferline").style_preset.no_italic,
 			},
 		})
 	end,
