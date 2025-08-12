@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
-vim.opt.termguicolors = true
+vim.o.termguicolors = true
 
 require("lazy").setup({ import = "custom.plugins" }, {
 	"NMAC427/guess-indent.nvim",
@@ -26,8 +26,5 @@ require("lazy").setup({ import = "custom.plugins" }, {
 	},
 })
 
--- [[ Theme ]]
--- vim.cmd.colorscheme("base16-black-metal-bathory")
-vim.cmd.colorscheme("rose-pine")
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

@@ -62,6 +62,13 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+vim.o.mousemoveevent = true
+
+vim.bo.expandtab = true
+vim.bo.smartindent = true
+
+vim.diagnostic.config({ update_in_insert = true })
+
 vim.opt.title = true
 vim.opt.titlestring = '%t%( %M%)%( (%{expand("%:~:h")})%)%a (nvim)'
 -- vim: ts=2 sts=2 sw=2 et

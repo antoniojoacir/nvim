@@ -16,7 +16,7 @@ return {
 		-- - sr)'  - [S]urround [R]eplace [)] [']
 		require("mini.surround").setup({})
 
-		require("mini.tabline").setup({})
+		-- require("mini.tabline").setup({})
 
 		require("mini.move").setup({
 			mappings = {
@@ -59,6 +59,63 @@ return {
 		require("mini.hipatterns").setup({
 			highlighters = {
 				hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
+			},
+		})
+
+		local starter = require("mini.starter")
+		starter.setup({
+			header = table.concat({
+				[[
+					 ,-.       _,---._ __  / \
+					/  )    .-'       `./ /   \
+				 (  (   ,'            `/    /|
+					\  `-"             \'\   / |
+					 `.              ,  \ \ /  |
+						/`.          ,'-`----Y   |
+					 (            ;        |   '
+					 |  ,-.    ,-'         |  /
+					 |  | (   |            | /
+					 )  |  \  `.___________|/
+					 `--'   `--'
+				]],
+			}, "\n"),
+			items = {
+				{
+					name = "  Browse files",
+					action = ":lua require('mini.files').open()",
+					section = "",
+				},
+				{
+					name = "  Open Blank File",
+					action = ":enew",
+					section = "",
+				},
+				{
+					name = " 󰈞 Find file",
+					action = ":Telescope find_files",
+					section = "",
+				},
+
+				{
+					name = "  Recent",
+					action = ":Telescope oldfiles",
+					section = "",
+				},
+				{
+					name = " 󰒲 Lazy Update",
+					action = ":Lazy update",
+					section = "",
+				},
+				{
+					name = "  Quit",
+					action = ":q!",
+					section = "",
+				},
+			},
+
+			footer = os.date("%B %d, %I:%M %p"),
+			content_hooks = {
+				starter.gen_hook.aligning("center", "center"),
 			},
 		})
 	end,

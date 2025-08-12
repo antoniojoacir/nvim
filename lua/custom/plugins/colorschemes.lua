@@ -1,22 +1,6 @@
 return {
-	{
-		"RRethy/base16-nvim",
-		config = function()
-			require("base16-colorscheme").with_config({
-				telescope = true,
-				indentblankline = true,
-				notify = true,
-				ts_rainbow = true,
-				cmp = true,
-				illuminate = true,
-				dapui = true,
-			})
-		end,
-	},
-	{
-		"akinsho/horizon.nvim",
-		version = "*",
-	},
+	{ "RRethy/base16-nvim" },
+	{ "akinsho/horizon.nvim" },
 	{
 		"rose-pine/neovim",
 		config = function()
@@ -38,15 +22,17 @@ return {
 					migrations = true,
 				},
 				styles = {
-					bold = true,
+					bold = false,
 					italic = false,
 					transparency = true,
 				},
 			})
+			vim.cmd.colorscheme("rose-pine")
 		end,
 	},
 	{
 		"folke/tokyonight.nvim",
+		lazy = false,
 		config = function()
 			require("tokyonight").setup({
 				style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
@@ -58,77 +44,6 @@ return {
 					sidebars = "transparent", -- style for sidebars, see below
 					floats = "transparent", -- style for floating windows
 				},
-				on_colors = function(colors)
-					colors.hint = colors.orange
-					colors.error = "#ff0000"
-				end,
-				on_highlights = function(hl, c)
-					local prompt = "#2d3149"
-					hl.TelescopeNormal = {
-						bg = c.bg_dark,
-						fg = c.fg_dark,
-					}
-					hl.TelescopeBorder = {
-						bg = c.bg_dark,
-						fg = c.bg_dark,
-					}
-					hl.TelescopePromptNormal = {
-						bg = prompt,
-					}
-					hl.TelescopePromptBorder = {
-						bg = prompt,
-						fg = prompt,
-					}
-					hl.TelescopePromptTitle = {
-						bg = prompt,
-						fg = prompt,
-					}
-					hl.TelescopePreviewTitle = {
-						bg = c.bg_dark,
-						fg = c.bg_dark,
-					}
-					hl.TelescopeResultsTitle = {
-						bg = c.bg_dark,
-						fg = c.bg_dark,
-					}
-				end,
-			})
-		end,
-	},
-	{
-		"ellisonleao/gruvbox.nvim",
-		config = function()
-			require("gruvbox").setup({
-				terminal_colors = true,
-				undercurl = true,
-				underline = true,
-				italic = {
-					bold = false,
-					strings = false,
-					emphasis = false,
-					comments = false,
-					operators = false,
-					folds = false,
-				},
-				strikethrough = true,
-				invert_selection = false,
-				invert_signs = false,
-				invert_tabline = false,
-				invert_intend_guides = false,
-				inverse = true,
-				contrast = "hard",
-				dim_inactive = false,
-				transparent_mode = true,
-			})
-		end,
-	},
-	{
-		"catppuccin/nvim",
-		config = function()
-			require("catppuccin").setup({
-				flavour = "mocha",
-				transparent_background = true,
-				term_colors = true,
 			})
 		end,
 	},
