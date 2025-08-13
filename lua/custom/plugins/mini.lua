@@ -56,12 +56,6 @@ return {
 			end, { desc = "Toggle file manager" }),
 		})
 
-		require("mini.hipatterns").setup({
-			highlighters = {
-				hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
-			},
-		})
-
 		local starter = require("mini.starter")
 		starter.setup({
 			header = table.concat({

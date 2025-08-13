@@ -1,33 +1,43 @@
 return {
 	{ "RRethy/base16-nvim" },
-	{ "akinsho/horizon.nvim" },
 	{
 		"rose-pine/neovim",
 		config = function()
 			require("rose-pine").setup({
-				highlight_groups = {
-					TelescopeBorder = { fg = "highlight_high", bg = "none" },
-					TelescopeNormal = { bg = "none" },
-					TelescopePromptNormal = { bg = "base" },
-					TelescopeResultsNormal = { fg = "subtle", bg = "none" },
-					TelescopeSelection = { fg = "text", bg = "base" },
-					TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
-				},
-				dark_variant = "main", -- main, moon, or dawn
+				variant = "auto",
+				dark_variant = "main",
 				dim_inactive_windows = false,
-				extend_background_behind_borders = true,
+				extend_background_behind_borders = false,
+
 				enable = {
 					terminal = true,
 					legacy_highlights = true,
 					migrations = true,
 				},
+
 				styles = {
 					bold = false,
 					italic = false,
 					transparency = true,
 				},
+
+				highlight_groups = {
+					TelescopeBorder = { fg = "overlay", bg = "none" },
+					TelescopeNormal = { fg = "subtle", bg = "none" },
+					TelescopeMultiSelection = { fg = "text", bg = "highlight_high" },
+					TelescopeSelection = { fg = "text", bg = "highlight_med" },
+					TelescopeSelectionCaret = { fg = "love", bg = "highlight_med" },
+
+					TelescopeTitle = { fg = "base", bg = "love" },
+					TelescopePromptTitle = { fg = "base", bg = "pine" },
+					TelescopePreviewTitle = { fg = "base", bg = "iris" },
+
+					TelescopePromptNormal = { fg = "text", bg = "none" },
+					TelescopePromptBorder = { fg = "surface", bg = "none" },
+				},
 			})
-			vim.cmd.colorscheme("rose-pine")
+
+			vim.cmd([[colorscheme rose-pine]])
 		end,
 	},
 	{
@@ -35,14 +45,14 @@ return {
 		lazy = false,
 		config = function()
 			require("tokyonight").setup({
-				style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-				transparent = true, -- Enable this to disable setting the background color
-				terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+				style = "night",
+				transparent = true,
+				terminal_colors = true,
 				styles = {
 					comments = { italic = false },
 					keywords = { italic = true },
-					sidebars = "transparent", -- style for sidebars, see below
-					floats = "transparent", -- style for floating windows
+					sidebars = "transparent",
+					floats = "transparent",
 				},
 			})
 		end,
