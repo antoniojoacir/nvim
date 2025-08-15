@@ -9,7 +9,7 @@ return {
 				xterm = true,
 				mode = "virtualtext",
 				virtualtext_inline = "before",
-				virtualtext = " ■ ",
+				virtualtext = "",
 				always_update = true,
 			},
 		})
