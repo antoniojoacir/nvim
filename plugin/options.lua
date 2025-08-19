@@ -65,8 +65,10 @@ vim.opt.scrolloff = 10
 vim.bo.expandtab = true
 vim.bo.smartindent = true
 
-vim.diagnostic.config({ update_in_insert = true })
-
 vim.opt.title = true
 vim.opt.titlestring = '%t%( %M%)%( (%{expand("%:~:h")})%)%a (nvim)'
+
+-- vim.opt.list = true
+-- vim.opt.listchars:append({ eol = "↴" })
+
 -- vim: ts=2 sts=2 sw=2 et

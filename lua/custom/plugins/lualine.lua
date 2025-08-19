@@ -30,7 +30,7 @@ return {
 							for _, client in ipairs(clients) do
 								table.insert(name, client.name)
 							end
-							return " " .. table.concat(name, " ") .. " ::"
+							return " " .. table.concat(name, " ")
 						end,
 					},
 					{ "filetype" },
@@ -39,7 +39,7 @@ return {
 							if vim.o.fileencoding == "" then
 								return ""
 							end
-							return ":: " .. vim.o.fileencoding
+							return vim.o.fileencoding
 						end,
 					},
 				},
