@@ -6,6 +6,12 @@ return {
 		{
 			"L3MON4D3/LuaSnip",
 			version = "v2.*",
+			build = (function()
+				if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
+					return
+				end
+				return "make install_jsregexp"
+			end)(),
 			dependencies = {
 				{
 					"rafamadriz/friendly-snippets",
@@ -14,6 +20,7 @@ return {
 					end,
 				},
 			},
+			opts = {},
 		},
 		"onsails/lspkind.nvim",
 		{
@@ -33,17 +40,28 @@ return {
 		keymap = { preset = "default" },
 		appearance = { nerd_font_variant = "mono" },
 		completion = {
-			documentation = { auto_show = true },
+			documentation = {
+				auto_show = true,
+				window = { border = "rounded" },
+			},
+			accept = {
+				auto_brackets = {
+					enabled = false,
+				},
+			},
 			list = {
+				max_items = 50,
 				selection = {
-					preselect = true,
 					auto_insert = false,
 				},
 			},
 			menu = {
 				border = "rounded",
 				draw = {
-					columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
+					treesitter = { "lsp" },
+					columns = { { "kind_icon" }, { "label", "kind", gap = 1 } },
+					padding = 2,
+					gap = 2,
 					components = {
 						kind_icon = {
 							text = function(ctx)
@@ -77,9 +95,9 @@ return {
 		},
 		signature = {
 			enabled = true,
-			-- window = {
-			-- 	show_documentation = false,
-			-- },
+			window = {
+				border = "rounded",
+			},
 		},
 		snippets = { preset = "luasnip" },
 		sources = {
@@ -90,5 +108,4 @@ return {
 		},
 		fuzzy = { implementation = "lua" },
 	},
-	-- opts_extend = { "sources.default" },
 }

@@ -5,15 +5,6 @@ return {
 		"mason-org/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		"saghen/blink.cmp",
-		{
-			"folke/lazydev.nvim",
-			ft = "lua",
-			opts = {
-				library = {
-					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-				},
-			},
-		},
 	},
 	config = function()
 		vim.api.nvim_create_autocmd("LspAttach", {
@@ -111,14 +102,18 @@ return {
 					and client.supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf)
 				then
 					map("<leader>th", function()
-						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+						vim.lsp.inlay_hint.enable(
+							not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }),
+							{ bufnr = event.buf }
+						)
 					end, "[T]oggle Inlay [H]ints")
 				end
+
+				-- Enable inlay hints by default
+				vim.lsp.inlay_hint.enable(true)
 			end,
 		})
 
-		-- Diagnostic Config
-		-- See :help vim.diagnostic.Opts
 		vim.diagnostic.config({
 			update_in_insert = true,
 			severity_sort = true,
@@ -165,7 +160,6 @@ return {
 						completion = {
 							callSnippet = "Replace",
 						},
-						-- diagnostics = { disable = { "missing-fields" } },
 					},
 				},
 			},
